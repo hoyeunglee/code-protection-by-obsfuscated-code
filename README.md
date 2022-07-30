@@ -14,6 +14,6 @@ If obsfucated enough , you can insert random number generation after each
 line of code to make cpu viewer can not easy to see your code in assembly language.
 
 There are random number of hash and encryption that can choose to use to further
-Obfuscated code
+Obfuscate code
 
 
