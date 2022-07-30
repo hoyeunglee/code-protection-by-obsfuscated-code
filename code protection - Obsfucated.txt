@@ -1,0 +1,75 @@
+import string
+import random
+
+def id_generator(size=10, chars=string.ascii_uppercase + string.ascii_lowercase):
+    return ''.join(random.choice(chars) for _ in range(size));
+
+str = id_generator(20);
+exec("%s = %d" % (str, 1));
+exec("%s = %f" % (str, 1.5));
+exec("%s = %s" % (str, "\"hello\""));
+exec("%s = %d" % (str, hash("hello")));
+
+str = id_generator(20);
+exec("%s = %s" % (str, "'hello'"));
+len(eval(str));
+eval(str).__str__();
+
+print("output:",eval(str));
+
+locals()[str] = 5000;
+print(str);
+
+globals()[str] = 5000;
+print(str);
+
+import string
+import random
+def id_generator(size=10, chars=string.ascii_uppercase + string.ascii_lowercase):
+    return ''.join(random.choice(chars) for _ in range(size));
+
+def hashofhash(aa, bb):
+    str = id_generator(20);
+    exec("%s = %d" % (str, hash(aa)));
+    print("str:", str);
+    for i in range(0, bb):
+        exec("%s = %d" % (str, hash(eval(str))));    
+    return eval(str);
+
+#random number of hash of hash
+str = id_generator(20);
+exec("%s = %d" % (str, random.randrange(10,20)));
+hashofhash("hello", eval(str));
+
+#counter increment obsfucation
+str = id_generator(20);
+for ii in range(8, 72, 8):
+    exec("%s = %d" % (str, ii/8));
+    print(eval(str));
+
+
+<html>
+<head>
+</head>
+<body>
+<script>
+function makeid(length){
+var result = '';
+var characters = 'ABCDEFGHIKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+var characerslength = characters.length;
+for( var i =0;  i< length; i++){
+result += characters.charAt(Math.floor(Math.random()*characerslength));
+}
+return result; 
+};
+console.log(makeid(10));
+variable1 = makeid(10);
+var myString = variable1;
+eval(myString+" = 10;");
+console.log(eval(variable1));
+</script>
+
+
+</body>
+</html>
+
